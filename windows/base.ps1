@@ -6,3 +6,5 @@ choco install -y firefox
 choco install -y keepass
 choco install -y notepad3
 choco install -y openjdk8
+choco install -y syncthing
+choco install -y synctrayzor
