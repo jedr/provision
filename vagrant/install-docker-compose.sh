@@ -9,3 +9,7 @@ curl -s https://api.github.com/repos/docker/compose/releases/latest \
  | wget -qi -
 chmod +x docker-compose-Linux-x86_64
 sudo mv docker-compose-Linux-x86_64 /usr/local/bin/docker-compose
+
+alias doco=docker-compose
+
+# TODO: Bash completion
