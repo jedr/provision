@@ -6,6 +6,7 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get upgrade --yes
 apt-get install --yes \
+  bash-completion # not installed by default in "bento/ubuntu-20.04" vagrant box
   net-tools # provides ifconfig
 
 echo "export EDITOR=vim" >>/home/vagrant/.bashrc
