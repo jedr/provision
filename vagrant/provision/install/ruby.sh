@@ -2,7 +2,8 @@
 set -exuo pipefail
 
 # Install rbenv from https://github.com/rbenv/rbenv-installer#rbenv-installer
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
+# The `|| true ` suffix is needed, because `rbenv-installer` calls `rbenv-doctor`, which fails. See https://github.com/rbenv/rbenv-installer/pull/23.
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash || true
 
 cat <<EOT >> ~/.profile
 if [ -d "\$HOME/.rbenv/bin" ] ; then
