@@ -19,14 +19,15 @@ sudo usermod -aG docker vagrant
 
 # Install microk8s
 sudo snap install microk8s --classic --channel=1.19/stable
-microk8s.status --wait-ready
-ufw allow in on cbr0
-ufw allow out on cbr0
-ufw default allow routed
-microk8s enable registry
-microk8s enable storage
-microk8s enable dns
-microk8s.kubectl config view --raw > /home/vagrant/.kube/config
+sudo microk8s.status --wait-ready
+sudo ufw allow in on cbr0
+sudo ufw allow out on cbr0
+sudo ufw default allow routed
+sudo microk8s enable registry
+sudo microk8s enable storage
+sudo microk8s enable dns
+mkdir -p /home/vagrant/.kube
+sudo microk8s.kubectl config view --raw > /home/vagrant/.kube/config
 sudo usermod -a -G microk8s vagrant
 
 # Install kubectl
@@ -44,15 +45,15 @@ echo "source <(kubectl completion bash)" >> /home/vagrant/.bashrc
 
 # Install Helm
 HELM_VERSION=v3.5.2
-mkdir /opt/helm3
-curl "https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz" | tar -xz -C /opt/helm3
-ln -s /opt/helm3/linux-amd64/helm /usr/bin/helm3
-ln -s /usr/bin/helm3 /usr/bin/helm
+sudo mkdir /opt/helm3
+curl "https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz" | sudo tar -xz -C /opt/helm3
+sudo ln -s /opt/helm3/linux-amd64/helm /usr/bin/helm3
+sudo ln -s /usr/bin/helm3 /usr/bin/helm
 
 # Install Golang
 GO_VERSION="1.16"
 wget "https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz"
-tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz
 rm go${GO_VERSION}.linux-amd64.tar.gz
 echo "export PATH=$PATH:/usr/local/go/bin" >> /home/vagrant/.bashrc
 PATH=$PATH:/usr/local/go/bin
@@ -62,10 +63,3 @@ PATH=$PATH:/usr/local/go/bin
 
 # Install yq
 go get -u github.com/mikefarah/yq/v4
-
-# Wait for microk8s ready
-while true; do
-  kubectl -n kube-system get services 1>/dev/null 2>&1 && break
-  echo 'Waiting for k8s server'
-  sleep 1
-done
