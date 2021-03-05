@@ -13,11 +13,13 @@ echo "Will create Vagrant box 'jedr' in $JEDR_PATH"
 
 mkdir -p "$JEDR_PATH"
 cp ../vagrant/Vagrantfile "$JEDR_PATH"
-sed -i'' -e 's/vagruntu-focal/jedr/' Vagrantfile
-sed -i'' -e 's/host: 2200/host: 2202/' Vagrantfile
 cp -r ../vagrant/provision "$JEDR_PATH"
 
 cd "$JEDR_PATH"
+
+sed -i '' -e 's/vagruntu-focal/jedr/' Vagrantfile
+sed -i '' -e 's/host: 2200/host: 2202/' Vagrantfile
+sed -i '' -e 's/ubuntu\/focal64/bento\/ubuntu-20.04/' Vagrantfile
 
 mkdir -p .ssh
 cp ~/.ssh/jedr* .ssh/
