@@ -10,3 +10,6 @@ brew cask install rectangle
 
 # https://karabiner-elements.pqrs.org/index.html - Switch Fn with Ctrl keys
 brew cask install karabiner-elements
+
+# Set scroll direction separately for trackpad and mouse https://pilotmoon.com/scrollreverser/
+brew install scroll-reverser
