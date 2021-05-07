@@ -22,3 +22,4 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Add Oh My Zsh plugins: vagrant
 
+git config --global init.defaultBranch main
