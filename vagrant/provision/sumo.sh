@@ -8,6 +8,7 @@ cp -r /vagrant/.ssh/* ~/.ssh
 # Configure Git client
 git config --global user.name "Andrzej Stencel"
 git config --global user.email "astencel@sumologic.com"
+git config --global init.defaultBranch main
 
 mkdir -p ~/sumo
 cd ~/sumo

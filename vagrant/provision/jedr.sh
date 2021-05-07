@@ -8,6 +8,7 @@ cp -r /vagrant/.ssh/* ~/.ssh
 # Configure Git client
 git config --global user.name "jedr"
 git config --global user.email "andrzej.stencel@gmail.com"
+git config --global init.defaultBranch main
 
 mkdir -p ~/jedr
 cd ~/jedr
