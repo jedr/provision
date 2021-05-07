@@ -1,5 +1,6 @@
 choco install -y git
 git config --global core.autocrlf false
+git config --global init.defaultBranch main
 choco install -y googlechrome
 choco install -y postman
 choco install -y virtualbox
