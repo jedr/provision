@@ -7,3 +7,5 @@ rm -f packages.microsoft.gpg
 
 sudo apt update --yes
 sudo apt install --yes code
+
+echo "fs.inotify.max_user_watches=524288" | sudo tee -a /etc/sysctl.conf
