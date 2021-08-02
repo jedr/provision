@@ -13,3 +13,6 @@ brew cask install karabiner-elements
 
 # Set scroll direction separately for trackpad and mouse https://pilotmoon.com/scrollreverser/
 brew install scroll-reverser
+
+# Install taskbar calendar replacement https://www.mowglii.com/itsycal/
+brew install --cask itsycal
