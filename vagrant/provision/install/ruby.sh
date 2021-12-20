@@ -5,7 +5,7 @@ set -exuo pipefail
 PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 
 # Install rbenv from https://github.com/rbenv/rbenv-installer#rbenv-installer
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-installer | bash
 
 cat <<EOT >> ~/.profile
 PATH="\$HOME/.rbenv/bin:\$PATH"
