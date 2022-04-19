@@ -2,9 +2,6 @@
 
 set -exuo pipefail
 
-apt-get install --yes \
-  git
-
 git config --global user.name "jedr"
 git config --global user.email "andrzej.stencel@gmail.com"
 
