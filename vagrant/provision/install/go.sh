@@ -1,7 +1,7 @@
 #!/bin/bash
 set -exuo pipefail
 
-GO_VERSION="1.16"
+GO_VERSION="1.17.1"
 wget "https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz"
 sudo tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz
 rm go${GO_VERSION}.linux-amd64.tar.gz
