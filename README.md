@@ -1,6 +1,20 @@
 # provision
 
-Provisioning scripts and tools
+Provisioning scripts and tools.
+
+## Provision an Ubuntu machine
+
+Basic stuff (install updates, change shell to zsh, install Midnight Commander etc.)
+
+```shell
+curl -s https://raw.githubusercontent.com/jedr/provision/main/ubuntu/base.sh | bash
+```
+
+For development (git, VS Code, Docker etc.):
+
+```shell
+curl -s https://raw.githubusercontent.com/jedr/provision/main/ubuntu/dev.sh | bash
+```
 
 ## Creating a new `jedr` Vagrant machine
 
