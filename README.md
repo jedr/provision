@@ -28,3 +28,5 @@ The parameter is the path where you want the Vagrantfile to be put.
 
 The script takes the Vagrantfile from [./vagrant/Vagrantfile](./vagrant/Vagrantfile),
 modifies a few things and creates the machine.
+
+Emoji test :new:
