@@ -1,0 +1,45 @@
+exporters:
+  debug/ping:
+    verbosity: detailed
+
+processors:
+  resource/ping:
+    attributes:
+    - action: insert
+      key: _sourceCategory
+      value: ping
+
+receivers:
+  filelog/ping:
+    include:
+    - /home/jedr/ping/ping.log
+    include_file_name: false
+    include_file_path: true
+    operators:
+      - type: move
+        from: attributes["log.file.path"]
+        to: resource["log.file.path"]
+      - type: regex_parser
+        regex: '^\[(?P<time>\d+\.\d+)\] '
+        timestamp:
+          parse_from: attributes.time
+          layout_type: epoch
+          layout: s.us
+      - type: remove
+        field: attributes.time
+    start_at: beginning
+    storage: file_storage
+
+service:
+  pipelines:
+    logs:
+      exporters:
+        #- debug/ping
+        - sumologic
+      processors:
+        - memory_limiter
+        - resourcedetection/system
+        - resource/ping
+        - batch
+      receivers:
+      - filelog/ping

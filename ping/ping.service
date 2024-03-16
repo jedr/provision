@@ -1,0 +1,13 @@
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/bin/bash /home/jedr/ping/write-ping.sh
+Restart=always
+RestartSec=1
+Type=simple
+User=jedr
+
+[Unit]
+After=network.target
+Description=Run ping commands and write results to file
